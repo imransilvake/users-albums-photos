@@ -17,4 +17,10 @@ describe('UsersService', () => {
 	it('should be created', () => {
 		expect(service).toBeTruthy();
 	});
+
+	it('should have called getUsers() only one time', () => {
+		spyOn(service, 'getUsers').and.callThrough();
+		service.getUsers();
+		expect(service.getUsers).toHaveBeenCalledTimes(1);
+	});
 });
