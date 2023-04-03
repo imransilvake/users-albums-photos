@@ -1,0 +1,5 @@
+node_modules
+output
+
+.angular
+.DS_Store
