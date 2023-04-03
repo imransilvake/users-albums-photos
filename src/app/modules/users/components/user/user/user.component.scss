@@ -1,0 +1,26 @@
+.app-user {
+	background-color: var(--section);
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px var(--shadow);
+	margin-top: 10px;
+    padding: 15px;
+
+	h2 {
+		font-size: 20px;
+		margin-bottom: 15px;
+		&::before {
+			content: "👩🏻‍🎤";
+			font-size: 20px;
+			padding-right: 4px;
+		}
+	}
+
+	p {
+		margin-top: 10px;
+	}
+
+	span {
+		color: var(--accent-secondary);
+		font-weight: 700;
+	}
+}

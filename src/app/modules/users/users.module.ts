@@ -6,6 +6,7 @@ import { UsersComponent } from './components/users/users.component';
 import { EffectsModule } from '@ngrx/effects';
 import { UsersEffects } from './store/users.effects';
 import { UsersService } from './services/users.service';
+import { UserComponent } from './components/user/user/user.component';
 
 @NgModule({
 	imports: [
@@ -13,7 +14,7 @@ import { UsersService } from './services/users.service';
 		StoreModule.forFeature('users', reducers),
 		EffectsModule.forFeature([UsersEffects]),
 	],
-	declarations: [UsersComponent],
+	declarations: [UsersComponent, UserComponent],
 	providers: [UsersService],
 	exports: [UsersComponent],
 })

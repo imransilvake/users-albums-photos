@@ -1,11 +1,12 @@
 <div class="app-users">
-	Users
-
+	<!-- Loading -->
 	<div *ngIf="isLoading$ | async">is Loading ...</div>
 
+	<!-- Error -->
 	<div *ngIf="error$ | async as error">{{ error }}</div>
 
+	<!-- Users -->
 	<div *ngFor="let user of users$ | async">
-		{{ user.name }}
+		<app-user [user]="user" />
 	</div>
 </div>

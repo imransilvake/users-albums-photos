@@ -1,0 +1,22 @@
+<div class="app-user">
+	<h2>{{ user?.name }}</h2>
+	<p><span>User:</span> {{ user?.username }}</p>
+	<p><span>Contact:</span> {{ user?.phone }}</p>
+
+	<!-- Address -->
+	<div *ngIf="user?.address" class="app-address">
+		<p>
+			<span>Address:</span> {{ user?.address?.street }},
+			{{ user?.address?.zipcode }},
+			{{ user?.address?.city }}
+		</p>
+	</div>
+
+	<!-- Company -->
+	<div *ngIf="user?.address" class="app-company">
+		<p>
+			<span>Name:</span> {{ user?.company?.name }}
+			<i> ({{ user?.company?.bs }}) </i>
+		</p>
+	</div>
+</div>
