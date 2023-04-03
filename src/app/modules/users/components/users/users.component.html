@@ -1,0 +1,11 @@
+<div class="app-users">
+	Users
+
+	<div *ngIf="isLoading$ | async">is Loading ...</div>
+
+	<div *ngIf="error$ | async as error">{{ error }}</div>
+
+	<div *ngFor="let user of users$ | async">
+		{{ user.name }}
+	</div>
+</div>
