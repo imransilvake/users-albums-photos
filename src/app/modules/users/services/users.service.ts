@@ -1,14 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserInterface } from '../types/user.interface';
+import { UserAlbumsInterface, UserInterface } from '../types/user.interface';
 
 @Injectable()
 export class UsersService {
+	baseUrl = 'https://jsonplaceholder.typicode.com';
+
 	constructor(private http: HttpClient) {}
 
 	getUsers(): Observable<UserInterface[]> {
-		const url = 'https://jsonplaceholder.typicode.com/users';
-		return this.http.get<UserInterface[]>(url);
+		return this.http.get<UserInterface[]>(`${this.baseUrl}/users`);
+	}
+
+	getUserAlbums(userId: number): Observable<UserAlbumsInterface[]> {
+		return this.http.get<UserAlbumsInterface[]>(`${this.baseUrl}/albums`, {
+			params: { userId },
+		});
 	}
 }

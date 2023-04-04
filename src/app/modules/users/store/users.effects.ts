@@ -26,6 +26,27 @@ export class UsersEffects {
 		)
 	);
 
+	getUserAlbums$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(UsersActions.getUserAlbums),
+			mergeMap((payload) => {
+				return this.usersService.getUserAlbums(payload.userId).pipe(
+					delay(400),
+					map((userAlbums) =>
+						UsersActions.getUserAlbumsSuccess({ userAlbums })
+					),
+					catchError((error) =>
+						of(
+							UsersActions.getUserAlbumsFailure({
+								error: error.message,
+							})
+						)
+					)
+				);
+			})
+		)
+	);
+
 	constructor(
 		private actions$: Actions,
 		private usersService: UsersService

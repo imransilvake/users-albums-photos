@@ -16,18 +16,21 @@ import { UserInterface } from '../../types/user.interface';
 	styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-	isLoading$: Observable<boolean>;
+	isLoader$: Observable<boolean>;
 	users$: Observable<UserInterface[]>;
 	error$: Observable<string | null>;
 
 	constructor(private store: Store<AppStateInterface>) {
-		this.isLoading$ = this.store.pipe(select(isLoaderSelector));
+		this.isLoader$ = this.store.pipe(select(isLoaderSelector));
 		this.users$ = this.store.pipe(select(usersSelector));
 		this.error$ = this.store.pipe(select(usersFailure));
 	}
 
 	ngOnInit(): void {
 		// dispatch: fetch users
-		this.store.dispatch(UsersActions.getUsers());
+		this.users$.subscribe((users) => {
+			if (users?.length) return;
+			this.store.dispatch(UsersActions.getUsers());
+		});
 	}
 }
