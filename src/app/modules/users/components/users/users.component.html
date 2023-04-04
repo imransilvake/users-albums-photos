@@ -1,6 +1,9 @@
 <div class="app-users">
 	<!-- Loading -->
-	<div *ngIf="isLoading$ | async">is Loading ...</div>
+	<div class="app-loading" *ngIf="isLoading$ | async">
+		<img src="assets/svg/spinner.svg">
+		<h4>Loading content...</h4>
+	</div>
 
 	<!-- Error -->
 	<div *ngIf="error$ | async as error">{{ error }}</div>
