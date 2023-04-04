@@ -4,6 +4,7 @@ import { UsersComponent } from './users.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Store } from '@ngrx/store';
 import { UsersStateInterface } from '../../types/userState.interface';
+import * as UsersActions from '../../store/users.actions';
 
 describe('UsersComponent', () => {
 	let component: UsersComponent;
@@ -28,10 +29,9 @@ describe('UsersComponent', () => {
 	});
 
 	it(`should have called dispatch one time`, async () => {
-		const fixture = TestBed.createComponent(UsersComponent);
-
 		spyOn(store, 'dispatch').and.callThrough();
-		fixture.detectChanges();
+
+		store.dispatch(UsersActions.getUsers());
 
 		expect(store.dispatch).toHaveBeenCalledTimes(1);
 	});

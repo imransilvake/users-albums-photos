@@ -1,10 +1,10 @@
 :root {
 	--container: #f7edff;
-    --section: #fff;
-    --accent: #7a24f2;
-    --accent-secondary: #7a24f2bb;
-    --accent-hover: #c9abf351;
-    --text: #1a0f3e;
+	--section: #ffffff;
+	--accent: #7a24f2;
+	--accent-secondary: #7a24f2bb;
+	--text: #1a0f3e;
+	--text-secondary: #ffffff;
 	--shadow: #ddd;
 }
 
@@ -17,7 +17,12 @@ body {
 	margin: 0;
 	padding: 0;
 
-	h1, h2, h3, h4, h5, h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		color: var(--accent);
 		margin: 0;
 	}
@@ -25,5 +30,20 @@ body {
 		color: var(--text);
 		margin-bottom: 0;
 	}
-}
 
+	button {
+		background-color: var(--accent);
+		border: 1px solid var(--accent);
+		border-radius: 4px;
+		color: var(--text-secondary);
+		cursor: pointer;
+		display: inline-block;
+		font-size: 13px;
+		padding: 7px 10px;
+		text-align: center;
+		text-decoration: none;
+		&:hover {
+			opacity: 90%;
+		}
+	}
+}

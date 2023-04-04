@@ -29,16 +29,16 @@ export const reducers = createReducer(
 
 	on(UsersActions.getUserAlbums, (state) => ({
 		...state,
-		isLoading: true,
+		isLoader: true,
 	})),
 	on(UsersActions.getUserAlbumsSuccess, (state, action) => ({
 		...state,
-		isLoading: false,
+		isLoader: false,
 		userAlbums: action.userAlbums,
 	})),
 	on(UsersActions.getUserAlbumsFailure, (state, action) => ({
 		...state,
-		isLoading: false,
+		isLoader: false,
 		error: action.error,
 	}))
 );
