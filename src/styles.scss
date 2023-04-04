@@ -5,6 +5,7 @@
 	--accent-secondary: #7a24f2bb;
 	--text: #1a0f3e;
 	--text-secondary: #ffffff;
+	--text-error: #d83e3e;
 	--shadow: #ddd;
 }
 
@@ -49,5 +50,9 @@ body {
 			cursor: default;
 			opacity: 50%;
 		}
+	}
+
+	.app-text-error {
+		color: var(--text-error);
 	}
 }

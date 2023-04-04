@@ -6,6 +6,7 @@ import {
 	isLoaderSelector,
 	isLoadingSelector,
 	userAlbumsFailure,
+	userAlbumsPhotosFailure,
 	userAlbumsPhotosSelector,
 	userAlbumsSelector,
 } from '../../store/users.selectors';
@@ -23,10 +24,11 @@ import * as UsersActions from '../../store/users.actions';
 export class DetailComponent implements OnInit {
 	isLoader$: Observable<boolean>;
 	userAlbums$: Observable<UserAlbumInterface[]>;
-	error$: Observable<string | null>;
+	userAlbumsError$: Observable<string | null>;
 
 	isLoading$: Observable<boolean>;
 	userAlbumsPhotos$: Observable<UserAlbumsPhotosInterface>;
+	userAlbumsPhotosError$: Observable<string | null>;
 
 	albumIdx = -1;
 	albumsPhotos: UserAlbumsPhotosInterface | null = null;
@@ -34,11 +36,14 @@ export class DetailComponent implements OnInit {
 	constructor(private store: Store<AppStateInterface>) {
 		this.isLoader$ = this.store.pipe(select(isLoaderSelector));
 		this.userAlbums$ = this.store.pipe(select(userAlbumsSelector));
-		this.error$ = this.store.pipe(select(userAlbumsFailure));
+		this.userAlbumsError$ = this.store.pipe(select(userAlbumsFailure));
 
 		this.isLoading$ = this.store.pipe(select(isLoadingSelector));
 		this.userAlbumsPhotos$ = this.store.pipe(
 			select(userAlbumsPhotosSelector)
+		);
+		this.userAlbumsPhotosError$ = this.store.pipe(
+			select(userAlbumsPhotosFailure)
 		);
 
 		this.userAlbumsPhotos$.subscribe((res) => (this.albumsPhotos = res));

@@ -1,15 +1,17 @@
 <div class="app-users">
 	<!-- Loading -->
 	<div class="app-loading" *ngIf="isLoader$ | async">
-		<img src="assets/svg/spinner.svg">
+		<img src="assets/svg/spinner.svg" />
 		<h4>Loading content...</h4>
 	</div>
 
 	<!-- Error -->
-	<div *ngIf="error$ | async as error">{{ error }}</div>
+	<div class="app-error" *ngIf="error$ | async as error">
+		<h4 class="app-text-error">{{ error }}</h4>
+	</div>
 
 	<!-- Users -->
 	<div *ngFor="let user of users$ | async">
-		<app-user [user]="user" />
+		<app-user [user]="user"></app-user>
 	</div>
 </div>
