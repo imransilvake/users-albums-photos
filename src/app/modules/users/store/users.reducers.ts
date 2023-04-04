@@ -7,6 +7,7 @@ export const initialState: UsersStateInterface = {
 	isLoading: false,
 	users: [],
 	userAlbums: [],
+	userAlbumsPhotos: {},
 	error: null,
 };
 
@@ -39,6 +40,21 @@ export const reducers = createReducer(
 	on(UsersActions.getUserAlbumsFailure, (state, action) => ({
 		...state,
 		isLoader: false,
+		error: action.error,
+	})),
+
+	on(UsersActions.getUserAlbumPhotos, (state) => ({
+		...state,
+		isLoading: true,
+	})),
+	on(UsersActions.getUserAlbumPhotosSuccess, (state, action) => ({
+		...state,
+		isLoading: false,
+		userAlbumsPhotos: action.userAlbumsPhotos,
+	})),
+	on(UsersActions.getUserAlbumPhotosFailure, (state, action) => ({
+		...state,
+		isLoading: false,
 		error: action.error,
 	}))
 );

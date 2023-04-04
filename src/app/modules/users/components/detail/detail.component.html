@@ -5,16 +5,43 @@
 		<h4>Loading content...</h4>
 	</div>
 
-	<!-- Content -->
+	<!-- Content: Albums & Photos -->
 	<ng-template #other_content>
-		<!-- Albums -->
 		<div class="app-albums">
 			<h2>Albums</h2>
-			<ol>
-				<ng-container *ngFor="let album of userAlbums$ | async">
-					<li>{{ album.title }}</li>
-				</ng-container>
-			</ol>
+			<div *ngFor="let album of userAlbums$ | async; let idx = index">
+				<div class="app-album">
+					<h4>Album No.{{ album.id }}</h4>
+					<p>{{ album.title }}</p>
+
+					<div class="app-fetch-photos">
+						<button
+							(click)="fetchAlbumPhotos(album.id)"
+							[disabled]="list?.[album.id]"
+						>
+							Fetch Photos
+						</button>
+						<img
+							*ngIf="(isLoading$ | async) && idx + 1 === albumIdx"
+							src="assets/svg/spinner.svg"
+						/>
+					</div>
+
+					<div *ngIf="list?.[album.id]" class="app-photos">
+						<div
+							class="app-photo"
+							*ngFor="let photo of list[album.id]"
+						>
+							<a [href]="photo.url" target="_blank">
+								<img
+									[src]="photo?.thumbnailUrl"
+									[alt]="photo?.title"
+								/>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</ng-template>
 </div>

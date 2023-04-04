@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UserAlbumInterface, UserInterface } from '../types/user.interface';
+import { map, Observable } from 'rxjs';
+import {
+	UserAlbumInterface,
+	UserAlbumPhotoInterface,
+	UserAlbumsPhotosInterface,
+	UserInterface,
+} from '../types/user.interface';
 
 @Injectable()
 export class UsersService {
@@ -17,5 +22,15 @@ export class UsersService {
 		return this.http.get<UserAlbumInterface[]>(`${this.baseUrl}/albums`, {
 			params: { userId },
 		});
+	}
+
+	getUserAlbumsPhotos(
+		albumId: number
+	): Observable<UserAlbumsPhotosInterface> {
+		return this.http
+			.get<UserAlbumPhotoInterface[]>(`${this.baseUrl}/photos`, {
+				params: { albumId },
+			})
+			.pipe(map((res) => ({ [albumId]: res })));
 	}
 }

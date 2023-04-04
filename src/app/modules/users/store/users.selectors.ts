@@ -26,3 +26,12 @@ export const userAlbumsFailure = createSelector(
 	selectUsers,
 	(state) => state.error
 );
+
+export const userAlbumsPhotosSelector = createSelector(
+	selectUsers,
+	(state) => state.userAlbumsPhotos
+);
+export const userAlbumsPhotosFailure = createSelector(
+	selectUsers,
+	(state) => state.error
+);

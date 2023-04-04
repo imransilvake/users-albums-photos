@@ -29,6 +29,15 @@ export interface UserAlbumInterface {
 	userId: number;
 	title: string;
 }
+
+export interface UserAlbumPhotoInterface {
 	id: number;
+	albumId: number;
 	title: string;
+	url: string;
+	thumbnailUrl: string;
+}
+
+export interface UserAlbumsPhotosInterface {
+	[key: number]: UserAlbumPhotoInterface[];
 }

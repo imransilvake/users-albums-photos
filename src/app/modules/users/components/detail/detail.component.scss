@@ -12,16 +12,49 @@
 	}
 
 	.app-albums {
-		background-color: var(--section);
-		border-radius: 5px;
-		box-shadow: 1px 1px 1px var(--shadow);
-		margin: 15px;
-		padding: 15px;
+		margin: 0 15px;
+		.app-album {
+			background-color: var(--section);
+			border-radius: 5px;
+			box-shadow: 1px 1px 1px var(--shadow);
+			margin: 15px 0;
+			padding: 15px;
+			h4 {
+				font-weight: 500;
+			}
+			p {
+				margin: 5px 0 0;
+			}
 
-		ol {
-			margin: 10px 0 0;
-			padding: 0 20px;
-			li {
+			.app-fetch-photos {
+				align-items: center;
+				display: flex;
+				margin-top: 15px;
+				button {
+					margin-right: 10px;
+				}
+				img {
+					width: 25px;
+				}
+			}
+
+			.app-photos {
+				align-items: center;
+				display: flex;
+				flex-wrap: wrap;
+				margin-top: 15px;
+				.app-photo {
+					margin-right: 5px;
+					a {
+						&:hover {
+							opacity: 90%;
+						}
+						img {
+							width: 75px;
+							height: 75px;
+						}
+					}
+				}
 			}
 		}
 	}
