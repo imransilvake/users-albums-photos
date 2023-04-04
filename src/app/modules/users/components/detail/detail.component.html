@@ -17,20 +17,22 @@
 					<div class="app-fetch-photos">
 						<button
 							(click)="fetchAlbumPhotos(album.id)"
-							[disabled]="list?.[album.id]"
+							[disabled]="albumsPhotos?.[album.id]"
 						>
 							Fetch Photos
 						</button>
 						<img
-							*ngIf="(isLoading$ | async) && idx + 1 === albumIdx"
+							*ngIf="
+								(isLoading$ | async) && album.id === albumIdx
+							"
 							src="assets/svg/spinner.svg"
 						/>
 					</div>
 
-					<div *ngIf="list?.[album.id]" class="app-photos">
+					<div *ngIf="albumsPhotos?.[album.id]" class="app-photos">
 						<div
 							class="app-photo"
-							*ngFor="let photo of list[album.id]"
+							*ngFor="let photo of albumsPhotos?.[album.id]"
 						>
 							<a [href]="photo.url" target="_blank">
 								<img
