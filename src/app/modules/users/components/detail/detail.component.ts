@@ -7,7 +7,7 @@ import {
 	userAlbumsFailure,
 	userAlbumsSelector,
 } from '../../store/users.selectors';
-import { UserAlbumsInterface } from '../../types/user.interface';
+import { UserAlbumInterface } from '../../types/user.interface';
 import * as UsersActions from '../../store/users.actions';
 
 @Component({
@@ -17,7 +17,7 @@ import * as UsersActions from '../../store/users.actions';
 })
 export class DetailComponent implements OnInit {
 	isLoader$: Observable<boolean>;
-	userAlbums$: Observable<UserAlbumsInterface[]>;
+	userAlbums$: Observable<UserAlbumInterface[]>;
 	error$: Observable<string | null>;
 
 	constructor(private store: Store<AppStateInterface>) {

@@ -1,9 +1,9 @@
-import { UserAlbumsInterface, UserInterface } from './user.interface';
+import { UserAlbumInterface, UserInterface } from './user.interface';
 
 export interface UsersStateInterface {
 	isLoader: boolean;
 	isLoading: boolean;
 	users: UserInterface[];
-	userAlbums: UserAlbumsInterface[];
+	userAlbums: UserAlbumInterface[];
 	error: string | null;
 }

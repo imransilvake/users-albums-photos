@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserAlbumsInterface, UserInterface } from '../types/user.interface';
+import { UserAlbumInterface, UserInterface } from '../types/user.interface';
 
 @Injectable()
 export class UsersService {
@@ -13,8 +13,8 @@ export class UsersService {
 		return this.http.get<UserInterface[]>(`${this.baseUrl}/users`);
 	}
 
-	getUserAlbums(userId: number): Observable<UserAlbumsInterface[]> {
-		return this.http.get<UserAlbumsInterface[]>(`${this.baseUrl}/albums`, {
+	getUserAlbums(userId: number): Observable<UserAlbumInterface[]> {
+		return this.http.get<UserAlbumInterface[]>(`${this.baseUrl}/albums`, {
 			params: { userId },
 		});
 	}

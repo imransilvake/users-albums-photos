@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { UserAlbumsInterface, UserInterface } from '../types/user.interface';
+import { UserAlbumInterface, UserInterface } from '../types/user.interface';
 
 export const getUsers = createAction('[Users] Get Users');
 export const getUsersSuccess = createAction(
@@ -17,7 +17,7 @@ export const getUserAlbums = createAction(
 );
 export const getUserAlbumsSuccess = createAction(
 	'[Users] Get User Albums Success',
-	props<{ userAlbums: UserAlbumsInterface[] }>()
+	props<{ userAlbums: UserAlbumInterface[] }>()
 );
 export const getUserAlbumsFailure = createAction(
 	'[Users] Get User Albums Failure',

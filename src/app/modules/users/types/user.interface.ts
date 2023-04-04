@@ -24,8 +24,11 @@ export interface UserCompanyInterface {
 	catchPhrase?: string;
 }
 
-export interface UserAlbumsInterface {
+export interface UserAlbumInterface {
+	id: number;
 	userId: number;
+	title: string;
+}
 	id: number;
 	title: string;
 }
