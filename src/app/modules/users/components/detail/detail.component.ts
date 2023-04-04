@@ -16,21 +16,22 @@ import * as UsersActions from '../../store/users.actions';
 	styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
-	isLoading$: Observable<boolean>;
+	isLoader$: Observable<boolean>;
 	userAlbums$: Observable<UserAlbumsInterface[]>;
 	error$: Observable<string | null>;
 
 	constructor(private store: Store<AppStateInterface>) {
-		this.isLoading$ = this.store.pipe(select(isLoaderSelector));
+		this.isLoader$ = this.store.pipe(select(isLoaderSelector));
 		this.userAlbums$ = this.store.pipe(select(userAlbumsSelector));
 		this.error$ = this.store.pipe(select(userAlbumsFailure));
 	}
 
 	ngOnInit(): void {
-		// user id
-		const userId = +(location.pathname?.split('/')?.pop() || 0);
-
 		// dispatch: fetch user albums
-		this.store.dispatch(UsersActions.getUserAlbums({ userId }));
+		this.userAlbums$.subscribe((userAlbums) => {
+			if (userAlbums?.length) return;
+			const userId = +(location.pathname?.split('/')?.pop() || 0);
+			this.store.dispatch(UsersActions.getUserAlbums({ userId }));
+		});
 	}
 }

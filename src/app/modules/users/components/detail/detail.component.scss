@@ -1,0 +1,28 @@
+.app-detail {
+	.app-loading {
+		margin-top: 30px;
+		text-align: center;
+		img {
+			height: 38px;
+		}
+		h4 {
+			font-weight: 400;
+			margin-top: 10px;
+		}
+	}
+
+	.app-albums {
+		background-color: var(--section);
+		border-radius: 5px;
+		box-shadow: 1px 1px 1px var(--shadow);
+		margin: 15px;
+		padding: 15px;
+
+		ol {
+			margin: 10px 0 0;
+			padding: 0 20px;
+			li {
+			}
+		}
+	}
+}

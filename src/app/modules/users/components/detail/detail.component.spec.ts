@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { DetailComponent } from './detail.component';
 
@@ -8,6 +9,7 @@ describe('DetailComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
+			providers: [provideMockStore({})],
 			declarations: [DetailComponent],
 		}).compileComponents();
 
