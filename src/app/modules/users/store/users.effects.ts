@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { of, catchError, map, mergeMap } from 'rxjs';
+import { of, catchError, map, mergeMap, delay } from 'rxjs';
 import { UsersService } from '../services/users.service';
 
 import * as UsersActions from './users.actions';
@@ -12,6 +12,7 @@ export class UsersEffects {
 			ofType(UsersActions.getUsers),
 			mergeMap(() => {
 				return this.usersService.getUsers().pipe(
+					delay(400),
 					map((users) => UsersActions.getUsersSuccess({ users })),
 					catchError((error) =>
 						of(
