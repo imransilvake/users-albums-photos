@@ -1,26 +1,26 @@
-<div class="app-user">
-	<h2>{{ user?.name }}</h2>
-	<p><span>User:</span> {{ user?.username }}</p>
-	<p><span>Email:</span> {{ user?.email }}</p>
-	<p><span>Contact:</span> {{ user?.phone }}</p>
+<div v-if="!!user" class="app-user">
+	<h2 *ngIf="user?.name">{{ user.name }}</h2>
+	<p *ngIf="user?.username"><span>User:</span> {{ user.username }}</p>
+	<p *ngIf="user?.email"><span>Email:</span> {{ user.email }}</p>
+	<p *ngIf="user?.phone"><span>Contact:</span> {{ user.phone }}</p>
 
 	<!-- Address -->
 	<div *ngIf="user?.address" class="app-address">
 		<p>
-			<span>Address:</span> {{ user.address?.street }},
-			{{ user.address?.zipcode }},
-			{{ user.address?.city }}
+			<span>Address:</span> {{ user.address.street }},
+			{{ user.address.zipcode }},
+			{{ user.address.city }}
 		</p>
 	</div>
 
 	<!-- Company -->
 	<div *ngIf="user?.company" class="app-company">
 		<p>
-			<span>Company:</span> {{ user.company?.name }}
-			<i> ({{ user.company?.bs }}) </i>
+			<span>Company:</span> {{ user.company.name }}
+			<i> ({{ user.company.bs }}) </i>
 		</p>
 	</div>
 
-	<!-- Details -->
+	<!-- Detail -->
 	<button (click)="showDetailPage(user.id)">Show Details</button>
 </div>
