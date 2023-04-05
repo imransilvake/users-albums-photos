@@ -27,10 +27,5 @@ yarn: 1.22.19
 "build": "ng build",
 "watch": "ng build --watch --configuration development",
 "test": "ng test",
-"e2e": "ng e2e",
-
-Steps
-1. yarn
-2. yarn start
-3. yarn e2e
+"e2e": "ng e2e"
 ```
