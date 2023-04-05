@@ -2,10 +2,9 @@
 
 An application that lists all users and their addresses provided by the users API of JSONPlaceholder. Provide the possibility to view the albums and photos of a selected user. Allow the the possibility to create new albums. Unit and e2e tests are written for each components.
 
-<p align="center">
-  <img src="preview-01.png" width="100%" />
-  <img src="preview-02.png" width="100%" /> 
-</p>
+<img src="preview-01.png" width="100%" />
+<img src="preview-02.png" width="100%" /> 
+
 
 ## Content
 - [X] Framework: Angular with CLI
