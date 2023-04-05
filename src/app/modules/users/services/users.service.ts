@@ -14,16 +14,30 @@ export class UsersService {
 
 	constructor(private http: HttpClient) {}
 
+	/**
+	 * fetch users
+	 * @returns
+	 */
 	getUsers(): Observable<UserInterface[]> {
 		return this.http.get<UserInterface[]>(`${this.baseUrl}/users`);
 	}
 
+	/**
+	 * fetch user albums
+	 * @param userId
+	 * @returns
+	 */
 	getUserAlbums(userId: number): Observable<UserAlbumInterface[]> {
 		return this.http.get<UserAlbumInterface[]>(`${this.baseUrl}/albums`, {
 			params: { userId },
 		});
 	}
 
+	/**
+	 * fetch user album photos
+	 * @param albumId
+	 * @returns
+	 */
 	getUserAlbumsPhotos(
 		albumId: number
 	): Observable<UserAlbumsPhotosInterface> {
@@ -32,5 +46,18 @@ export class UsersService {
 				params: { albumId },
 			})
 			.pipe(map((res) => ({ [albumId]: res })));
+	}
+
+	/**
+	 * create user album
+	 * @param title
+	 * @returns
+	 */
+	createUserAlbum(title: string): Observable<UserAlbumInterface> {
+		const userId = +(location.pathname?.split('/')?.pop() || 0);
+		return this.http.post<UserAlbumInterface>(`${this.baseUrl}/albums`, {
+			userId,
+			title,
+		});
 	}
 }

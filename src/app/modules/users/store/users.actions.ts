@@ -41,3 +41,11 @@ export const getUserAlbumPhotosFailure = createAction(
 	'[Users] Get User Albums Photos Failure',
 	props<{ error: string }>()
 );
+
+export const createUserAlbum = createAction(
+	'[Users] Create User Album',
+	props<{ title: string }>()
+);
+export const createUserAlbumFailure = createAction(
+	'[Users] Create User Album Failure'
+);

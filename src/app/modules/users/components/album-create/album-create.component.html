@@ -1,0 +1,19 @@
+<div class="app-album-create">
+	<h3>Form</h3>
+
+	<form (ngSubmit)="createAlbum()">
+		<div>
+			<label for="title">Title</label>
+			<input
+				#input
+				id="title"
+				type="text"
+				name="title"
+				placeholder="Enter album title"
+				[formControl]="title"
+			/>
+		</div>
+
+		<button type="submit" [disabled]="!title.value">Create</button>
+	</form>
+</div>

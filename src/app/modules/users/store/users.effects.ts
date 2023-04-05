@@ -6,7 +6,10 @@ import { AppStateInterface } from 'src/app/types/appState.interface';
 import { UsersService } from '../services/users.service';
 
 import * as UsersActions from './users.actions';
-import { userAlbumsPhotosSelector } from './users.selectors';
+import {
+	userAlbumsPhotosSelector,
+	userAlbumsSelector,
+} from './users.selectors';
 
 @Injectable()
 export class UsersEffects {
@@ -75,6 +78,23 @@ export class UsersEffects {
 							)
 						)
 					);
+			})
+		)
+	);
+
+	createAlbum$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(UsersActions.createUserAlbum),
+			withLatestFrom(this.store.select(userAlbumsSelector)),
+			mergeMap(([payload, existingValues]) => {
+				return this.usersService.createUserAlbum(payload.title).pipe(
+					map((album) =>
+						UsersActions.getUserAlbumsSuccess({
+							userAlbums: [album, ...existingValues],
+						})
+					),
+					catchError(() => of(UsersActions.createUserAlbumFailure()))
+				);
 			})
 		)
 	);

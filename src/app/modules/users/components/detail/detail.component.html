@@ -13,7 +13,18 @@
 	<!-- Content: Albums & Photos -->
 	<ng-template #other_content>
 		<div class="app-albums">
-			<h2>Albums</h2>
+			<div class="app-head">
+				<h2>Albums</h2>
+				<button (click)="createAlbum()">Create Album</button>
+			</div>
+
+			<!-- Create -->
+			<app-album-create
+				*ngIf="isCreateAlbum"
+				(onEmitSubmit)="isCreateAlbum = $event"
+			></app-album-create>
+
+			<!-- List -->
 			<div *ngFor="let album of userAlbums$ | async; let idx = index">
 				<div class="app-album">
 					<h4>Album No.{{ album.id }}</h4>

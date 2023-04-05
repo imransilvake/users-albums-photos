@@ -18,6 +18,13 @@
 
 	.app-albums {
 		margin: 0 15px;
+
+		.app-head {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+		}
+
 		.app-album {
 			background-color: var(--section);
 			border-radius: 5px;

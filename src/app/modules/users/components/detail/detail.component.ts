@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { firstValueFrom, lastValueFrom, Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { AppStateInterface } from 'src/app/types/appState.interface';
 import {
 	isLoaderSelector,
@@ -32,6 +32,7 @@ export class DetailComponent implements OnInit {
 
 	albumIdx = -1;
 	albumsPhotos: UserAlbumsPhotosInterface | null = null;
+	isCreateAlbum!: boolean;
 
 	constructor(private store: Store<AppStateInterface>) {
 		this.isLoader$ = this.store.pipe(select(isLoaderSelector));
@@ -69,5 +70,9 @@ export class DetailComponent implements OnInit {
 
 		// track clicked album for loading animation during fetch photos
 		this.albumIdx = albumId;
+	}
+
+	createAlbum() {
+		this.isCreateAlbum = true;
 	}
 }

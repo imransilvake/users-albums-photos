@@ -1,12 +1,12 @@
 :root {
+	--accent-secondary: #7a24f2bb;
+	--accent: #7a24f2;
 	--container: #f7edff;
 	--section: #ffffff;
-	--accent: #7a24f2;
-	--accent-secondary: #7a24f2bb;
-	--text: #1a0f3e;
-	--text-secondary: #ffffff;
-	--text-error: #d83e3e;
 	--shadow: #ddd;
+	--text-error: #d83e3e;
+	--text-secondary: #ffffff;
+	--text: #1a0f3e;
 }
 
 * {
@@ -31,11 +31,14 @@ body {
 		color: var(--text);
 		margin-bottom: 0;
 	}
+	label {
+		color: var(--accent);
+	}
 
 	button {
 		background-color: var(--accent);
-		border: 1px solid var(--accent-secondary);
 		border-radius: 5px;
+		border: 1px solid var(--accent-secondary);
 		color: var(--text-secondary);
 		cursor: pointer;
 		display: inline-block;
@@ -43,6 +46,7 @@ body {
 		padding: 7px 10px;
 		text-align: center;
 		text-decoration: none;
+
 		&:hover {
 			opacity: 90%;
 		}
@@ -50,6 +54,17 @@ body {
 			cursor: default;
 			opacity: 50%;
 		}
+	}
+
+	input {
+		border-radius: 4px;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		display: inline-block;
+		margin: 8px 0;
+		outline: none;
+		padding: 12px 20px;
+		width: 100%;
 	}
 
 	.app-text-error {

@@ -1,0 +1,15 @@
+.app-album-create {
+	background-color: var(--section);
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px var(--shadow);
+	margin: 15px 0;
+	padding: 15px;
+
+	form {
+		margin-top: 20px;
+
+		button {
+			margin-top: 10px;
+		}
+	}
+}
