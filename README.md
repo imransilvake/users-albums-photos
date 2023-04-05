@@ -2,6 +2,19 @@
 
 This offline task was invented to get a picture of your coding skills. Besides coding, we're interested in your ability to implement a basic design without wireframes or other input.
 
+## Run Commands
+```
+"start": "ng serve",
+"build": "ng build",
+"watch": "ng build --watch --configuration development",
+"test": "ng test",
+"e2e": "ng e2e",
+
+e.g
+yarn start
+yarn e2e
+```
+
 
 ## General 
 
