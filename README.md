@@ -8,11 +8,11 @@ An application that lists all users and their addresses provided by the users AP
 </p>
 
 ## Content
-- [ ] Framework: Angular with CLI
-- [ ] State Management: NgRx Store, NgRx Effects, NgRx Selectors
-- [ ] `{JSON}` Placeholder fake APIs: `/users`, `/albums`, `/photos`
-- [ ] Unit tests with Karma & Jasmine
-- [ ] e2e tests with Cypress
+- [X] Framework: Angular with CLI
+- [X] State Management: NgRx Store, NgRx Effects, NgRx Selectors
+- [X] `{JSON}` Placeholder fake APIs: `/users`, `/albums`, `/photos`
+- [X] Unit tests with Karma & Jasmine
+- [X] e2e tests with Cypress
 
 
 ## Required
