@@ -1,4 +1,4 @@
-describe('User', () => {
+describe('Create Album', () => {
 	beforeEach(() => {
 		cy.visit('/users/1');
 	});
