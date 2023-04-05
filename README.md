@@ -2,6 +2,12 @@
 
 This offline task was invented to get a picture of your coding skills. Besides coding, we're interested in your ability to implement a basic design without wireframes or other input.
 
+## Required
+```
+node: v18.10.0
+yarn: 1.22.19
+```
+
 ## Run Commands
 ```
 "start": "ng serve",
@@ -10,11 +16,11 @@ This offline task was invented to get a picture of your coding skills. Besides c
 "test": "ng test",
 "e2e": "ng e2e",
 
-e.g
-yarn start
-yarn e2e
+Steps
+1. yarn
+2. yarn start
+3. yarn e2e
 ```
-
 
 ## General 
 
