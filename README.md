@@ -1,6 +1,6 @@
-# Angular Frontend Project
+# Users: Albums and Photos
 
-An application that lists all users and their addresses provided by the users API of JSONPlaceholder. Provide the possibility to view the albums and photos of a selected user. Allow the the possibility to create new albums.
+An application that lists all users and their addresses provided by the users API of JSONPlaceholder. Provide the possibility to view the albums and photos of a selected user. Allow the the possibility to create new albums. Unit and e2e tests are written for each components.
 
 ## Required
 ```
